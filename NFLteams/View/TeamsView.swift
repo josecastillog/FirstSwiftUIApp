@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct TeamsView: View {
+    
+    @StateObject var teamViewModel = TeamViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView{
+                VStack {
+                    ForEach(teamViewModel.arrTeams) { item in
+                        NavigationLink(destination: TeamDetailView(team: item), label: {
+                            TeamView(team: item)
+                        })
+                    }
+                }
+            } .navigationTitle("NFL Teams")
+        }
     }
 }
 

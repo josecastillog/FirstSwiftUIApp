@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct TeamView: View {
+    let team : Team
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ZStack {
+                Image(team.imageName)
+                    .resizable()
+                    .scaledToFit()
+            }.padding()
     }
 }
 
 struct TeamView_Previews: PreviewProvider {
     static var previews: some View {
-        TeamView()
+        TeamView(team: Team.defaultTeam)
     }
 }
